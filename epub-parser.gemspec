@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rubygems-tasks'
-  s.add_development_dependency 'zipruby' unless RUBY_PLATFORM.match /mingw/
   s.add_development_dependency 'pry'
   s.add_development_dependency 'pry-doc'
   s.add_development_dependency 'test-unit'
@@ -49,4 +48,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'addressable', '>= 2.3.5'
   s.add_runtime_dependency 'rchardet', '>= 1.6.1'
   s.add_runtime_dependency 'epub-cfi'
+  s.add_runtime_dependency 'rubyzip', '~> 2.3'
 end

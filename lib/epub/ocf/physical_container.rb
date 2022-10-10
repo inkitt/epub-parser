@@ -2,6 +2,7 @@ require 'monitor'
 require 'epub/ocf/physical_container/archive_zip'
 require 'epub/ocf/physical_container/unpacked_directory'
 require 'epub/ocf/physical_container/unpacked_uri'
+require 'epub/ocf/physical_container/zipper'
 
 module EPUB
   class OCF
@@ -16,12 +17,12 @@ module EPUB
         end
       end
 
-      @adapter = ArchiveZip
+      @adapter = Zipper
 
       class << self
         def find_adapter(adapter)
           return adapter if adapter.instance_of? Class
-          if adapter == :Zipruby && ! const_defined?(adapter)
+          if adapter == :Zipruby && !const_defined?(adapter)
             require 'epub/ocf/physical_container/zipruby'
           end
           const_get adapter
